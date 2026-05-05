@@ -57,7 +57,7 @@ function Layout() {
 /* ===== APP ===== */
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         {/* Admin — full screen, no navbar/footer */}
         <Route path="/admin" element={<Admin />} />
