@@ -1,5 +1,5 @@
 /* ===== APP ROOT - ROUTING ===== */
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -20,8 +20,9 @@ function Layout() {
   const isHome = location.pathname === '/';
 
   /* ===== NAVIGATE TO ADMIN ON 5 LOGO CLICKS ===== */
+  const navigate = useNavigate();
   const handleLogoClick = () => {
-    window.location.href = '/admin';
+    navigate('/admin');
   };
 
   /* ===== SCROLL TO TOP ON ROUTE CHANGE ===== */
