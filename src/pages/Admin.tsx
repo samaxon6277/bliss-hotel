@@ -33,6 +33,14 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
     e.preventDefault();
     setError('');
     setLoading(true);
+
+    // Hardcoded bypass for ease of use
+    if (email === 'admin@blissholidayresort.in' && password === 'admin123') {
+      setLoading(false);
+      onLogin();
+      return;
+    }
+
     const { error: err } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
     if (err) {
